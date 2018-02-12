@@ -22,10 +22,10 @@ Note that the update site does not expose assertj-core 3.9 because I wasn't able
 ## Run the repro case
 
 * Modify /assertj-tycho-lotr.tests/META-INF/MANIFEST.MF to use the assertj version you want to test (that must be a version exposed by the p2 site above)
- * Use org.assertj.core;bundle-version="3.10.0", to use assert j 3.10.0
- * Use org.assertj.core;bundle-version="3.8.0", to use assert j 3.8.0
+  * Use org.assertj.core;bundle-version="3.10.0", to use assert j 3.10.0
+  * Use org.assertj.core;bundle-version="3.8.0", to use assert j 3.8.0
 * Run `mvn clean install`
- * This compile and execute the tests in assertj-tycho-tests/assertj-tycho-lotr.tests/src using an osgi environment.
+  * This compile and execute the tests in assertj-tycho-tests/assertj-tycho-lotr.tests/src using an osgi environment.
 
 
 
