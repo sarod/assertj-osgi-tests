@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: assertj-tycho-lotr.tests
+Bundle-SymbolicName: assertj-tycho-lotr.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.junit;bundle-version="4.12.0",
+ org.assertj.core;bundle-version="3.8.0",
+ assertj-tycho-lotr

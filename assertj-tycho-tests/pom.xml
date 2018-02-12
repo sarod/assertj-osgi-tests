@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.assertj</groupId>
+	<artifactId>assertj-tycho-tests</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0-SNAPSHOT</version>
+
+	<properties>
+		<tycho-version>1.1.0</tycho-version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<repositories>
+		<repository>
+			<id>assertj-local</id>
+			<name>assertj-local</name>
+			<layout>p2</layout>
+			<url>http://localhost:8080/site</url>
+		</repository>
+
+		<repository>
+			<id>oxygen</id>
+			<!-- Used to resolve 
+			junit 
+			javax.xml 
+			equinox launcher (for test execution)
+			-->		
+			<name>Oxygen Repo</name>
+			<layout>p2</layout>
+			
+			<url>http://download.eclipse.org/eclipse/updates/4.7 </url>
+		</repository>
+
+	</repositories>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<extensions>true</extensions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<target>
+						<artifact>
+							<groupId>org.assertj</groupId>
+							<artifactId>assertj-tycho-lotr-target</artifactId>
+							<version>1.0.0-SNAPSHOT</version>							
+						</artifact>
+					</target>
+					<environments>
+						<!-- Useless here but just to make tycho "Build is platform dependent" 
+							warning disappear -->
+						<environment>
+							<os>linux</os>
+							<ws>gtk</ws>
+							<arch>x86_64</arch>
+						</environment>
+
+					</environments>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-surefire-plugin</artifactId>
+				<version>${tycho-version}</version>
+				<configuration>
+					<includes>
+						<include>**/*Test.java</include>
+					</includes>
+					<argLine>-Xmx512m</argLine>
+					<appArgLine>-nl en</appArgLine>
+					<bundleStartLevel>
+						<bundle>
+							<id>org.eclipse.equinox.ds</id>
+							<level>1</level>
+							<autoStart>true</autoStart>
+						</bundle>
+					</bundleStartLevel>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-packaging-plugin</artifactId>
+				<version>${tycho-version}</version>
+			</plugin>
+		</plugins>
+	</build>
+
+
+	<modules>
+<!-- 		<module>assertj-tycho-lotr-target</module> -->
+		<module>assertj-tycho-lotr</module>
+		<module>assertj-tycho-lotr.tests</module>
+	</modules>
+</project>
