@@ -50,13 +50,6 @@
 				<artifactId>target-platform-configuration</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
-					<target>
-						<artifact>
-							<groupId>org.assertj</groupId>
-							<artifactId>assertj-tycho-lotr-target</artifactId>
-							<version>1.0.0-SNAPSHOT</version>							
-						</artifact>
-					</target>
 					<environments>
 						<!-- Useless here but just to make tycho "Build is platform dependent" 
 							warning disappear -->
@@ -99,7 +92,6 @@
 
 
 	<modules>
-<!-- 		<module>assertj-tycho-lotr-target</module> -->
 		<module>assertj-tycho-lotr</module>
 		<module>assertj-tycho-lotr.tests</module>
 	</modules>

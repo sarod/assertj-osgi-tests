@@ -5,6 +5,10 @@
 	<artifactId>assertj-p2</artifactId>
 	<packaging>pom</packaging>
 	<version>1.0.0-SNAPSHOT</version>
+	
+	<properties>
+		<assertj-version>3.10.0-SNAPSHOT</assertj-version>
+	</properties>
 
 	<build>
 		<plugins>
@@ -16,15 +20,9 @@
 					<execution>
 						<id>default-cli</id>
 						<configuration>
-							<artifacts>
+							<artifacts>															
 								<artifact>
-									<id>org.assertj:assertj-core:3.8.0</id>
-								</artifact>
-								<!-- Something is wrong with 3.9.0 causing  invalid LOC header  -->
-								<!-- <artifact> <id>org.assertj:assertj-core:3.9.0</id> </artifact> -->
-
-								<artifact>
-									<id>org.assertj:assertj-core:3.10.0-SNAPSHOT</id>
+									<id>org.assertj:assertj-core:${assertj-version}</id>
 								</artifact>
 							</artifacts>
 						</configuration>
